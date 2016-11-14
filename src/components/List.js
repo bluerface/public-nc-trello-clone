@@ -9,8 +9,13 @@ const List = React.createClass({
         <a onClick={this.props.removeList}><i className='fa fa-close remove-list'></i></a>
         <h1 className='list-name'>{this.props.list.name}</h1>
         {
-          this.props.list.cards.map(function (card, i) {
-            return <Card key={i} card={card} />;
+          this.props.list.cards.map((card, i) => {
+            return <Card
+                    key={i}
+                    card={card}
+                    removeCard={this.props.removeCard.bind(this, i)}
+
+                  />;
           })
         }
         <AddCardForm addCard={this.props.addCard} />

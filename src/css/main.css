@@ -21,18 +21,17 @@ body {
   margin-bottom: 20px;
 }
 
-.remove-list {
+.remove-list, .remove-card {
   float: right;
   color: transparent;
   transition: all 0.1s ease;
 }
-
-.list:hover .remove-list {
-  color: grey;
-}
-
 /*-------card styles--------*/
 .card {
   padding: 5px;
   clear: both;
+}
+
+.list:hover .remove-list, .card:hover .remove-card {
+  color: grey;
 }

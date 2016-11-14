@@ -15,7 +15,13 @@ const Board = React.createClass({
       <div className='board'>
         {
           this.state.lists.map((list, i) => {
-            return <List key={i} list={list} removeList={() => { this.removeList(i); }} addCard={this.addCard.bind(this, i)} />;
+            return <List
+              key={i}
+              list={list}
+              removeList={() => { this.removeList(i); }}
+              addCard={this.addCard.bind(this, i)}
+              removeCard={this.removeCard.bind(this, i)}
+            />;
           })
         }
         <AddListForm addList={this.addList} />
@@ -43,6 +49,16 @@ const Board = React.createClass({
   addCard: function (i, newCard) {
     var newState = {lists: this.state.lists.slice()};
     newState.lists[i].cards.push(newCard);
+    this.setState(newState);
+  },
+
+  removeCard: function (iList, iCard) {
+    console.log(iList, iCard);
+    var newState = {lists: this.state.lists.slice()};
+    var first = newState.lists[iList].cards.slice(0, iCard);
+    var second = newState.lists[iList].cards.slice(iCard + 1);
+    newState.lists[iList].cards = first.concat(second);
+
     this.setState(newState);
   }
 });
