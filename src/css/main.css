@@ -35,3 +35,14 @@ body {
 .list:hover .remove-list, .card:hover .remove-card {
   color: grey;
 }
+
+/*---navstyles---*/
+.our-nav {
+  background-color: #0067A3;
+  height: 30px;
+}
+
+/*#app .button .our-icon {
+  margin-left: 2px;
+  margin-right: 2px;
+}*/

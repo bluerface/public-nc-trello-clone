@@ -59,7 +59,9 @@ const Board = React.createClass({
     var second = newState.lists[iList].cards.slice(iCard + 1);
     newState.lists[iList].cards = first.concat(second);
 
-    this.setState(newState);
+    this.setState(newState, () => {
+      console.log(this.state);
+    });
   }
 });
 
