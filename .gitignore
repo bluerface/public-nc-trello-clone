@@ -1,7 +1,7 @@
 node_modules
 .DS_Store
 .idea
-public/bundle.js
+public/js/bundle.js
 **/*/.DS_Store
 **/*/*.log
 *.log

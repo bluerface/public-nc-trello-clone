@@ -1,3 +1,15 @@
 h1 {
   color: pink;
 }
+
+/* -- list styles -- */
+
+.list {
+  width: 300px;
+  float:left;
+  margin: 10px;
+}
+
+.card {
+  padding: 5px;
+}
