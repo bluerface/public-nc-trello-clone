@@ -1,0 +1,7 @@
+node_modules
+.DS_Store
+.idea
+public/bundle.js
+**/*/.DS_Store
+**/*/*.log
+*.log
