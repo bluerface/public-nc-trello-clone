@@ -1,9 +1,6 @@
-h1 {
-  color: pink;
-}
 body {
   overflow-x: scroll;
-  height: 100vh; 
+  height: 100vh;
 }
 
 .board {
@@ -20,6 +17,22 @@ body {
   margin: 10px;
 }
 
+.list-name {
+  margin-bottom: 20px;
+}
+
+.remove-list {
+  float: right;
+  color: transparent;
+  transition: all 0.1s ease;
+}
+
+.list:hover .remove-list {
+  color: grey;
+}
+
+/*-------card styles--------*/
 .card {
   padding: 5px;
+  clear: both;
 }

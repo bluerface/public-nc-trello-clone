@@ -3,29 +3,19 @@ const Card = require('./Card');
 const AddCardForm = require('./AddCardForm');
 
 const List = React.createClass({
-  getInitialState: function () {
-    return {
-      name: this.props.list.name,
-      cards: this.props.list.cards
-    };
-  },
   render: function () {
     return (
       <div className='box list'>
-        <h1>{this.state.name}</h1>
+        <a onClick={this.props.removeList}><i className='fa fa-close remove-list'></i></a>
+        <h1 className='list-name'>{this.props.list.name}</h1>
         {
-          this.state.cards.map(function (card, i) {
+          this.props.list.cards.map(function (card, i) {
             return <Card key={i} card={card} />;
           })
         }
-        <AddCardForm addCard={this.addCard} />
+        <AddCardForm addCard={this.props.addCard} />
       </div>
     );
-  },
-  addCard: function (newCard) {
-    var newState = {cards: this.state.cards.slice()};
-    newState.cards.push(newCard);
-    this.setState(newState);
   }
 });
 
