@@ -1,26 +1,30 @@
 const React = require('react');
-const ReactDOM = require('react-dom');
 const boardData = require('./data.js');
-const AddList = require('./AddList');
+const AddListForm = require('./AddListForm');
 const List = require('./List');
 
 const Board = React.createClass({
   getInitialState: function () {
-     return {
-       board: boardData
-     }
+    return {
+      board: boardData
+    };
   },
   render: function () {
     return (
       <div>
         {this.state.board.lists.map(function (list, i) {
-          return <List key = {i} list = {list}/>
+          return <List key={i} list={list} />;
         })
         }
 
-        <AddList />
+        <AddListForm addList={this.addList} />
       </div>
-    )
+    );
+  },
+  addList: function (newList) {
+    var newState = Object.assign({}, this.state);
+    newState.board.lists.push(newList);
+    this.setState(newState);
   }
 });
 
