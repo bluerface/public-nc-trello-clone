@@ -22,15 +22,13 @@ const AddListForm = React.createClass({
 
     var newState = {};
     newState[key] = event.target.value;
-    this.setState(newState, () => {
-      console.log(this.state);
-    });
+    this.setState(newState);
   },
   handleFormSubmit: function (event) {
     event.preventDefault();
     if (this.state.listName === '') return;
     var name = this.state.listName;
-    var newList = ListObject(name);
+    var newList = new ListObject(name);
     this.props.addList(newList);
     this.setState({listName: ''});
   }

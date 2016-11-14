@@ -1,8 +1,6 @@
 const ListObject = function (name, cards) {
-  return {
-    name: name,
-    cards: cards || []
-  };
+  this.name = name;
+  this.cards = cards || [];
 };
 
 module.exports = ListObject;

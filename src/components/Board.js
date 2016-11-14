@@ -6,13 +6,14 @@ const List = require('./List');
 const Board = React.createClass({
   getInitialState: function () {
     return {
-      board: boardData
+      name: boardData.name,
+      lists: boardData.lists
     };
   },
   render: function () {
     return (
       <div className='board'>
-        {this.state.board.lists.map(function (list, i) {
+        {this.state.lists.map(function (list, i) {
           return <List key={i} list={list} />;
         })
         }
@@ -22,8 +23,8 @@ const Board = React.createClass({
     );
   },
   addList: function (newList) {
-    var newState = Object.assign({}, this.state);
-    newState.board.lists.push(newList);
+    var newState = {lists: this.state.lists.slice()};
+    newState.lists.push(newList);
     this.setState(newState);
   }
 });
