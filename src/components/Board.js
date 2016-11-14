@@ -11,7 +11,7 @@ const Board = React.createClass({
   },
   render: function () {
     return (
-      <div>
+      <div className='board'>
         {this.state.board.lists.map(function (list, i) {
           return <List key={i} list={list} />;
         })

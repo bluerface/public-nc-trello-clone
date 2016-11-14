@@ -1,12 +1,22 @@
 h1 {
   color: pink;
 }
+body {
+  overflow-x: scroll;
+  height: 100vh; 
+}
+
+.board {
+  white-space: nowrap;
+}
 
 /* -- list styles -- */
 
 .list {
   width: 300px;
-  float:left;
+  /*float:left;*/
+  display: inline-block;
+  vertical-align: top;
   margin: 10px;
 }
 
