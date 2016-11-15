@@ -11,7 +11,14 @@ const AddCardForm = React.createClass({
     return (
       <div className='our-card'>
         <form onSubmit={this.handleFormSubmit}>
-          <textarea placeholder='add card text' name='cardText' value={this.state.cardText} onChange={this.onFieldChange}> </textarea> <br />
+          <textarea
+            placeholder='add card text'
+            name='cardText'
+            value={this.state.cardText}
+            onChange={this.onFieldChange}
+            onKeyPress={this.handleKeyPress}
+            >
+          </textarea> <br />
           <button>Add</button>
         </form>
       </div>
@@ -26,12 +33,18 @@ const AddCardForm = React.createClass({
   },
 
   handleFormSubmit: function (event) {
-    event.preventDefault();
+    event && event.preventDefault();
     if (this.state.cardText === '') return;
     var text = this.state.cardText;
     var card = new CardObject(text);
     this.props.addCard(card);
     this.setState({cardText: ''});
+  },
+
+  handleKeyPress: function (e) {
+    if(e.which === 13) {
+      this.handleFormSubmit();
+    }
   }
 });
 
