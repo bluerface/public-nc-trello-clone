@@ -15,6 +15,7 @@ const List = React.createClass({
                 key={i}
                 card={card}
                 removeCard={this.props.removeCard.bind(this, i)}
+                editCardText={this.props.editCardText.bind(this, i)}
               />
             );
           })
