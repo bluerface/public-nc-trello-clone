@@ -23,6 +23,7 @@ const Board = React.createClass({
               removeCard={this.removeCard.bind(this, i)}
               editCardText={this.editCardText.bind(this, i)}
               editListName={this.editListName.bind(this, i)}
+              lists={this.state.lists}
             />;
           })
         }

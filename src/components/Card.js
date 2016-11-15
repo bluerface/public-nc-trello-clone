@@ -1,20 +1,23 @@
 const React = require('react');
-const ReactDOM = require('react-dom');
-const EditCardForm = require('./EditCardForm')
-
+const EditCardForm = require('./EditCardForm');
+const MoveMenu = require('./MoveMenu');
 
 const Card = React.createClass({
   getInitialState: function () {
     return {
-      isEdit: false
-    }
+      isEdit: false,
+      menuOpen: false
+    };
   },
   toggleEditCard: function () {
     this.setState({
-      isEdit:!this.state.isEdit
-    }, () => {
-      console.log(this.state);
-    })
+      isEdit: !this.state.isEdit
+    });
+  },
+  toggleMenu: function () {
+    this.setState({
+      menuOpen: !this.state.menuOpen
+    });
   },
   render: function () {
     if (this.state.isEdit) {
@@ -26,15 +29,17 @@ const Card = React.createClass({
             editCardText={this.props.editCardText}
           />
         </div>
-      )
+      );
     }
     return (
-      <div className = "our-card">
+      <div className={`our-card ${this.state.menuOpen ? 'highlighted' : ''}`}>
         {this.props.card.text}
-        <a href='#' onClick={this.props.removeCard}><i className='fa fa-close remove-card'> </i></a>
-        <a href="#" onClick={this.toggleEditCard}><i className='fa fa-pencil edit-card'></i></a>
+        <a href='#' onClick={this.props.removeCard}><i className='fa fa-fw fa-close hover-icon'> </i></a>
+        <a href="#" onClick={this.toggleEditCard}><i className='fa fa-fw fa-pencil hover-icon'></i></a>
+        <a href="#"><i onClick={this.toggleMenu} className='fa fa-fw fa-ellipsis-v hover-icon'></i></a>
+        {this.state.menuOpen && <MoveMenu lists={this.props.lists} toggleMenu={this.toggleMenu}/>}
       </div>
-    )
+    );
   }
 });
 

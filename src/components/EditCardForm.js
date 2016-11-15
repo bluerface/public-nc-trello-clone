@@ -11,8 +11,7 @@ const EditCardForm = React.createClass({
     return (
       <form onSubmit={this.onSubmit}>
         <textarea name='cardText' value={this.state.cardText} onChange={this.onFieldChange}></textarea><br />
-        <button type='submit'>Submit</button>
-        <button onClick={this.handleCancel}>Cancel</button>
+        <button type='submit' className='button is-success'>Save</button>
       </form>
     )
   },

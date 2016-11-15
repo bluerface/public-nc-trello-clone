@@ -9,17 +9,19 @@ const AddCardForm = React.createClass({
   },
   render: function () {
     return (
-      <div className='our-card'>
+      <div>
         <form onSubmit={this.handleFormSubmit}>
-          <textarea
-            placeholder='add card text'
-            name='cardText'
-            value={this.state.cardText}
-            onChange={this.onFieldChange}
-            onKeyPress={this.handleKeyPress}
-            >
-          </textarea> <br />
-          <button>Add</button>
+          <div className='our-card'>
+            <textarea
+              placeholder='Add card text'
+              name='cardText'
+              value={this.state.cardText}
+              onChange={this.onFieldChange}
+              onKeyPress={this.handleKeyPress}
+              >
+            </textarea> <br />
+          </div>
+          <button className='button is-success'>Add</button>
         </form>
       </div>
     );

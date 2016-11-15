@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   overflow-x: scroll;
   height: 100vh;
@@ -8,6 +12,11 @@ input[type="text"]{
   padding:3px;
   margin:-3px;
   border-radius:3px;
+}
+
+textarea {
+  border: none;
+  width: 100%;
 }
 .board {
   white-space: nowrap;
@@ -31,12 +40,7 @@ input[type="text"]{
   float:left;
 }
 
-.remove-list, .remove-card, .edit-card {
-  float: right;
-  color: transparent;
-  transition: all 0.1s ease;
-  margin-left:5px;
-}
+
 /*-------card styles--------*/
 .our-card {
   padding: 5px;
@@ -51,7 +55,19 @@ card:hover {
   background-color:#edeff0;
 }
 
-.our-list:hover .remove-list, .our-card:hover .remove-card, .our-card:hover .edit-card{
+/*---- hover icons ----*/
+.remove-list, .hover-icon {
+  float: right;
+  color: transparent;
+  transition: all 0.1s ease;
+  /*margin-left: 20px;*/
+}
+
+.our-list:hover .remove-list, .our-card:hover .hover-icon{
+  color: silver;
+}
+
+#app .hover-icon:hover {
   color: grey;
 }
 
@@ -73,3 +89,29 @@ card:hover {
   margin-left: 2px;
   margin-right: 2px;
 }*/
+
+/* ---- popup menu styles ----*/
+.our-card {
+  position: relative;
+}
+.move-menu {
+  width: 400px;
+  margin: 0px;
+  z-index: 100;
+  position: absolute;
+  top: 0px;
+  left: 300px;
+  border: 1px grey solid;
+}
+/*.lightbox {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(20, 20, 20, 0.7);
+  z-index: 900;
+}*/
+.highlighted {
+  background-color: LightGreen;
+}
