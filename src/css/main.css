@@ -41,7 +41,15 @@ body {
 /*---navstyles---*/
 .our-nav {
   background-color: #0067A3;
+  box-sizing: border-box;
   height: 30px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.board {
+  margin-top: 55px;
 }
 
 /*#app .button .our-icon {
