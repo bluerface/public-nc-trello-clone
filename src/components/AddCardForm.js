@@ -9,7 +9,7 @@ const AddCardForm = React.createClass({
   },
   render: function () {
     return (
-      <div className='card box'>
+      <div className='our-card'>
         <form onSubmit={this.handleFormSubmit}>
           <textarea placeholder='add card text' name='cardText' value={this.state.cardText} onChange={this.onFieldChange}> </textarea> <br />
           <button>Add</button>

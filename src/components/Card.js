@@ -19,7 +19,7 @@ const Card = React.createClass({
   render: function () {
     if (this.state.isEdit) {
       return (
-        <div className='box card'>
+        <div className='our-card'>
           <EditCardForm
             cardText={this.props.card.text}
             toggleEditCard={this.toggleEditCard}
@@ -29,7 +29,7 @@ const Card = React.createClass({
       )
     }
     return (
-      <div className = "box card">
+      <div className = "our-card">
         {this.props.card.text}
         <a href='#' onClick={this.props.removeCard}><i className='fa fa-close remove-card'> </i></a>
         <a href="#" onClick={this.toggleEditCard}><i className='fa fa-pencil edit-card'></i></a>

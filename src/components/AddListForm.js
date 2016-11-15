@@ -9,7 +9,7 @@ const AddListForm = React.createClass({
   },
   render: function () {
     return (
-      <div className='box list'>
+      <div className='our-list'>
         <form onSubmit={this.handleFormSubmit}>
           <input type='text' placeholder='Add a list' value={this.state.listName} name='listName' onChange={this.onFieldChange}></input>
           <button type='submit'>Add</button>

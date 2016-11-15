@@ -18,18 +18,20 @@ const List = React.createClass({
   },
   render: function () {
     return (
-      <div className='box list'>
-        {this.state.isEdit &&
-          <EditListForm
-            listName={this.props.list.name}
-            editListName={this.props.editListName}
-            toggleEditName={this.toggleEditName}
-          />
-        }
+      <div className='our-list'>
+      {this.state.isEdit &&
+        <h1 className='list-name'>
+            <EditListForm
+              listName={this.props.list.name}
+              editListName={this.props.editListName}
+              toggleEditName={this.toggleEditName}
+            />
+        </h1>
+      }
+        {!this.state.isEdit && <h1 className='list-name' onClick={this.toggleEditName}><span>{this.props.list.name}</span></h1>}
 
         <a onClick={this.props.removeList}><i className='fa fa-close remove-list'></i></a>
 
-        {!this.state.isEdit && <h1 className='list-name' onClick={this.toggleEditName}>{this.props.list.name}</h1>}
 
         {
           this.props.list.cards.map((card, i) => {
