@@ -1,4 +1,5 @@
 const React = require('react');
+const enhanceWithClickOutside = require('react-click-outside');
 
 const EditListForm = React.createClass({
   getInitialState: function () {
@@ -13,6 +14,10 @@ const EditListForm = React.createClass({
       </form>
     );
   },
+  handleClickOutside() {
+    this.props.toggleEditName();
+  },
+
   onFieldChange: function (e) {
     var key = e.target.name;
     var newState = {};
@@ -26,4 +31,4 @@ const EditListForm = React.createClass({
   }
 });
 
-module.exports = EditListForm;
+module.exports = enhanceWithClickOutside(EditListForm);
