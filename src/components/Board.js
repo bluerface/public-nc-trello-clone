@@ -22,6 +22,7 @@ const Board = React.createClass({
               addCard={this.addCard.bind(this, i)}
               removeCard={this.removeCard.bind(this, i)}
               editCardText={this.editCardText.bind(this, i)}
+              editListName={this.editListName.bind(this, i)}
             />;
           })
         }
@@ -65,9 +66,15 @@ const Board = React.createClass({
     });
   },
 
-  editCardText: function (iList, iCard, cardText, cb) {
+  editCardText: function (iList, iCard, cardText) {
     var newState = {lists: this.state.lists.slice()};
     newState.lists[iList].cards[iCard].text = cardText;
+    this.setState(newState);
+  },
+
+  editListName: function (iList, listName) {
+    var newState = {lists: this.state.lists.slice()};
+    newState.lists[iList].name = listName;
     this.setState(newState);
   }
 });
