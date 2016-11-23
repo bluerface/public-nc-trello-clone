@@ -32,7 +32,6 @@ const List = React.createClass({
 
         <a onClick={this.props.removeList}><i className='fa fa-close remove-list'></i></a>
 
-
         {
           this.props.list.cards.map((card, i) => {
             return (
@@ -42,6 +41,9 @@ const List = React.createClass({
                 removeCard={this.props.removeCard.bind(this, i)}
                 editCardText={this.props.editCardText.bind(this, i)}
                 lists={this.props.lists}
+                cards={this.props.list.cards}
+                listIndex={this.props.listIndex}
+                cardIndex={i}
               />
             );
           })

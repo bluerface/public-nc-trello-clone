@@ -37,7 +37,13 @@ const Card = React.createClass({
         <a href='#' onClick={this.props.removeCard}><i className='fa fa-fw fa-close hover-icon'> </i></a>
         <a href="#" onClick={this.toggleEditCard}><i className='fa fa-fw fa-pencil hover-icon'></i></a>
         <a href="#"><i onClick={this.toggleMenu} className='fa fa-fw fa-ellipsis-v hover-icon'></i></a>
-        {this.state.menuOpen && <MoveMenu lists={this.props.lists} toggleMenu={this.toggleMenu}/>}
+        {this.state.menuOpen && <MoveMenu
+          lists={this.props.lists}
+          cards={this.props.cards}
+          listIndex={this.props.listIndex}
+          cardIndex={this.props.cardIndex}
+          toggleMenu={this.toggleMenu}
+        />}
       </div>
     );
   }

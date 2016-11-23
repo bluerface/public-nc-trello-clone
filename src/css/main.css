@@ -95,23 +95,26 @@ card:hover {
   position: relative;
 }
 .move-menu {
-  width: 400px;
+  width: 300px;
   margin: 0px;
+  padding: 10px;
   z-index: 100;
   position: absolute;
   top: 0px;
   left: 300px;
   border: 1px grey solid;
 }
-/*.lightbox {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background-color: rgba(20, 20, 20, 0.7);
-  z-index: 900;
-}*/
+
+.move-menu * {
+  margin-bottom: 10px;
+}
+
+.move-menu h1 {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
 .highlighted {
-  background-color: LightGreen;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
 }

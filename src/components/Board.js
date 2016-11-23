@@ -18,6 +18,7 @@ const Board = React.createClass({
             return <List
               key={i}
               list={list}
+              listIndex={i}
               removeList={() => { this.removeList(i); }}
               addCard={this.addCard.bind(this, i)}
               removeCard={this.removeCard.bind(this, i)}
