@@ -40,7 +40,7 @@ const MoveMenu = React.createClass({
             }
           </select>
           <br />
-          <button type='submit' className='button is-success'>Save</button>
+          <button type='submit' className='button is-success'>Move</button>
         </form>
       </div>
     );
