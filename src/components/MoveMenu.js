@@ -41,12 +41,11 @@ const MoveMenu = React.createClass({
   handleChange: function (event) {
     let newState = {};
     newState[event.target.name] = event.target.value;
-    this.setState(newState, () => {
-      console.log(this.state);
-    });
+    this.setState(newState);
   },
   handleSubmit: function (e) {
     e.preventDefault();
+    this.props.toggleMenu();
     this.props.moveCard(this.props.listIndex, this.props.cardIndex, +this.state.targetList, +this.state.targetPosition);
   }
 });

@@ -81,8 +81,27 @@ const Board = React.createClass({
     this.setState(newState);
   },
 
-  moveCard: function () {
-    console.log(arguments);
+  moveCard: function (listIndex, cardIndex, targetList, targetPosition) {
+    // get hold of the card
+    let card = this.state.lists[listIndex].cards[cardIndex];
+    console.log(card);
+
+    if (listIndex === targetList) {
+      let cardArr = this.state.lists[listIndex].cards;
+      // remove the card
+      let newcardArr = cardArr.slice(0, cardIndex).concat(cardArr.slice(cardIndex + 1));
+
+      // add it back in
+      newcardArr = newcardArr.slice(0, targetPosition).concat([card], newcardArr.slice(targetPosition));
+
+      // make a copy of the list object
+      let newListObj = Object.assign({}, this.state.lists[listIndex], {cards: newcardArr});
+
+      // set the state
+      this.setState({
+        lists: this.state.lists.slice(0, listIndex).concat([newListObj], this.state.lists.slice(listIndex + 1))
+      });
+    }
   }
 });
 
