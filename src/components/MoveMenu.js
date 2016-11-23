@@ -14,18 +14,26 @@ const MoveMenu = React.createClass({
         <form onSubmit={this.handleSubmit}>
           <h1> Move Card </h1>
           <p>Move to List:</p>
-          <select className='select' name='targetList' onChange={this.handleChange}>
+          <select className='select' name='targetList' onChange={this.handleChange} value={this.state.targetList}>
             {
-              this.props.lists.map(function (list, i) {
-                return (<option key={i} value={i}>{list.name}</option>);
+              this.props.lists.map((list, i) => {
+                return (
+                  <option key={i} value={i}>
+                    {list.name}
+                  </option>
+                );
               })
             }
           </select>
           <p> Move to position </p>
-          <select className='select' name='targetPosition' onChange={this.handleChange}>
+          <select className='select' name='targetPosition' onChange={this.handleChange} value={this.state.targetPosition}>
             {
-              this.props.cards.map(function (_, i) {
-                return (<option key={i} value={i}>{i}</option>);
+              this.props.cards.map((_, i) => {
+                return (
+                  <option key={i} value={i}>
+                    {i}
+                  </option>
+                );
               })
             }
           </select>
