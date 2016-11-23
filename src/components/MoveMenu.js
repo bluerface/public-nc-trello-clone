@@ -28,7 +28,7 @@ const MoveMenu = React.createClass({
           <p> Move to position </p>
           <select className='select' name='targetPosition' onChange={this.handleChange} value={this.state.targetPosition}>
             {
-              this.props.cards.map((_, i) => {
+              this.props.lists[this.state.targetList].cards.concat(['']).map((_, i) => {
                 return (
                   <option key={i} value={i}>
                     {i}
