@@ -82,32 +82,27 @@ const Board = React.createClass({
   },
 
   moveCard: function (listIndex, cardIndex, targetList, targetPosition) {
-    // get hold of the card
+    // make a copy of the card object
     let card = Object.assign({}, this.state.lists[listIndex].cards[cardIndex]);
-    console.log(card);
 
     if (listIndex === targetList) {
-      // remove the card
-      let cardArr = this.state.lists[listIndex].cards;
-      let newcardArr = cardArr.slice(0, cardIndex).concat(cardArr.slice(cardIndex + 1));
-
-      // add it back in
-      newcardArr = newcardArr.slice(0, targetPosition).concat([card], newcardArr.slice(targetPosition));
-
       // make a copy of the list object
-      let newListObj = Object.assign({}, this.state.lists[listIndex], {cards: newcardArr});
-
+      // remove the card
+      // add it back in
       // make a copy of the array of lists
+      // set the state
+
+      let newListObj = Object.assign({}, this.state.lists[listIndex]);
+      newListObj.cards = newListObj.cards.slice(0, cardIndex).concat(newListObj.cards.slice(cardIndex + 1));
+      newListObj.cards = newListObj.cards.slice(0, targetPosition).concat([card], newListObj.cards.slice(targetPosition));
+
       let newlistArr = this.state.lists.slice();
       newlistArr[listIndex] = newListObj;
-      // set the state
+
       this.setState({
         lists: newlistArr
       });
-    }
-
-
-    else {
+    } else {
       // make a copy of the card object
       // make copies of the old and target list objects with their new card array
       // remove card from old card array
