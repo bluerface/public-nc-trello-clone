@@ -83,12 +83,12 @@ const Board = React.createClass({
 
   moveCard: function (listIndex, cardIndex, targetList, targetPosition) {
     // get hold of the card
-    let card = this.state.lists[listIndex].cards[cardIndex];
+    let card = Object.assign({}, this.state.lists[listIndex].cards[cardIndex]);
     console.log(card);
 
     if (listIndex === targetList) {
-      let cardArr = this.state.lists[listIndex].cards;
       // remove the card
+      let cardArr = this.state.lists[listIndex].cards;
       let newcardArr = cardArr.slice(0, cardIndex).concat(cardArr.slice(cardIndex + 1));
 
       // add it back in
@@ -97,9 +97,37 @@ const Board = React.createClass({
       // make a copy of the list object
       let newListObj = Object.assign({}, this.state.lists[listIndex], {cards: newcardArr});
 
+      // make a copy of the array of lists
+      let newlistArr = this.state.lists.slice();
+      newlistArr[listIndex] = newListObj;
       // set the state
       this.setState({
-        lists: this.state.lists.slice(0, listIndex).concat([newListObj], this.state.lists.slice(listIndex + 1))
+        lists: newlistArr
+      });
+    }
+
+
+    else {
+      // make a copy of the card object
+      // make copies of the old and target list objects with their new card array
+      // remove card from old card array
+      // add the card to the new card array
+      // make a copy of the array of lists
+      // replace the relevant list objects in the array
+      // set the state
+
+      let oldListObj = Object.assign({}, this.state.lists[listIndex]);
+      oldListObj.cards = oldListObj.cards.slice(0, cardIndex).concat(oldListObj.cards.slice(cardIndex + 1));
+
+      let targetListObj = Object.assign({}, this.state.lists[targetList]);
+      targetListObj.cards = targetListObj.cards.slice(0, targetPosition).concat([card], targetListObj.cards.slice(targetPosition));
+
+      let newListArr = this.state.lists.slice();
+      newListArr[listIndex] = oldListObj;
+      newListArr[targetList] = targetListObj;
+
+      this.setState({
+        lists: newListArr
       });
     }
   }
