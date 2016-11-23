@@ -42,6 +42,7 @@ const Card = React.createClass({
           cards={this.props.cards}
           listIndex={this.props.listIndex}
           cardIndex={this.props.cardIndex}
+          moveCard={this.props.moveCard}
           toggleMenu={this.toggleMenu}
         />}
       </div>

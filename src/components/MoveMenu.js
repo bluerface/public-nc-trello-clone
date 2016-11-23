@@ -11,25 +11,27 @@ const MoveMenu = React.createClass({
   render: function () {
     return (
       <div className='our-card move-menu highlighted'>
-        <h1> Move Card </h1>
-        <p>Move to List:</p>
-        <select className='select' name='targetList' onChange={this.handleChange}>
-          {
-            this.props.lists.map(function (list, i) {
-              return (<option key={i} value={i}>{list.name}</option>);
-            })
-          }
-        </select>
-        <p> Move to position </p>
-        <select className='select' name='targetPosition' onChange={this.handleChange}>
-          {
-            this.props.cards.map(function (_, i) {
-              return (<option key={i} value={i}>{i}</option>);
-            })
-          }
-        </select>
-        <br />
-        <button type='submit' className='button is-success'>Save</button>
+        <form onSubmit={this.handleSubmit}>
+          <h1> Move Card </h1>
+          <p>Move to List:</p>
+          <select className='select' name='targetList' onChange={this.handleChange}>
+            {
+              this.props.lists.map(function (list, i) {
+                return (<option key={i} value={i}>{list.name}</option>);
+              })
+            }
+          </select>
+          <p> Move to position </p>
+          <select className='select' name='targetPosition' onChange={this.handleChange}>
+            {
+              this.props.cards.map(function (_, i) {
+                return (<option key={i} value={i}>{i}</option>);
+              })
+            }
+          </select>
+          <br />
+          <button type='submit' className='button is-success'>Save</button>
+        </form>
       </div>
     );
   },
@@ -42,6 +44,10 @@ const MoveMenu = React.createClass({
     this.setState(newState, () => {
       console.log(this.state);
     });
+  },
+  handleSubmit: function (e) {
+    e.preventDefault();
+    this.props.moveCard(this.props.listIndex, this.props.cardIndex, +this.state.targetList, +this.state.targetPosition);
   }
 });
 

@@ -18,13 +18,14 @@ const Board = React.createClass({
             return <List
               key={i}
               list={list}
-              listIndex={i}
               removeList={() => { this.removeList(i); }}
               addCard={this.addCard.bind(this, i)}
               removeCard={this.removeCard.bind(this, i)}
               editCardText={this.editCardText.bind(this, i)}
               editListName={this.editListName.bind(this, i)}
               lists={this.state.lists}
+              listIndex={i}
+              moveCard={this.moveCard}
             />;
           })
         }
@@ -78,6 +79,10 @@ const Board = React.createClass({
     var newState = {lists: this.state.lists.slice()};
     newState.lists[iList].name = listName;
     this.setState(newState);
+  },
+
+  moveCard: function () {
+    console.log(arguments);
   }
 });
 

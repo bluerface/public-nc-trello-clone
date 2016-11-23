@@ -44,6 +44,7 @@ const List = React.createClass({
                 cards={this.props.list.cards}
                 listIndex={this.props.listIndex}
                 cardIndex={i}
+                moveCard={this.props.moveCard}
               />
             );
           })
