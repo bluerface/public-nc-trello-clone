@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha ./spec --compilers js:babel-core/register",
     "dev": "webpack-dev-server --hot --inline --content-base public",
-    "build": "webpack",
+    "start": "node server.js",
+    "build": "NODE_ENV='production' webpack -p",
     "clean": "rm public/js/bundle.js"
   },
   "author": "",
@@ -31,6 +32,7 @@
   },
   "dependencies": {
     "bulma": "^0.2.3",
+    "express": "^4.14.1",
     "react": "^15.2.1",
     "react-click-outside": "^2.2.0",
     "react-dom": "^15.2.1"
